@@ -1,4 +1,3 @@
-import './app.scss';
 import { NavLink, Outlet } from 'react-router';
 import { toBeLearned } from './main';
 

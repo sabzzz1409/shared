@@ -1,6 +1,17 @@
-import { StrictMode, lazy, Suspense, createElement } from 'react';
+import {
+  StrictMode,
+  lazy,
+  Suspense,
+  createElement,
+  type FC,
+  type LazyExoticComponent
+} from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router';
+import {
+  BrowserRouter,
+  Route,
+  Routes
+} from 'react-router';
 import App from './App.tsx';
 
 export const toBeLearned: string[] = [
@@ -17,8 +28,7 @@ export const toBeLearned: string[] = [
   'Packages'
 ];
 
-// Create lazy-loaded components dynamically
-const lazyComponents: Record<string, React.LazyExoticComponent<React.FC>> = {};
+const lazyComponents: Record<string, LazyExoticComponent<FC>> = {};
 toBeLearned.forEach(name => {
   lazyComponents[name] = lazy(() => import(`./components/${name}.tsx`));
 });
