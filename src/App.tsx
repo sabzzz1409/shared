@@ -5,27 +5,39 @@ export default () => {
 
 	const introText = `
 	This is a react project integrated
-	with tailwindcss scss
-	and react router declarative
+	with tailwindcss, scss
+	and react router declarative Mode
 	`;
 
 	return (
 		<>
-			<h2 className="text-xl font-extrabold">
+			<h2 className="sm:text-lg md:text-2xl font-extrabold text-center font-serif bg-blue-100">
 				{introText}
 			</h2>
-			<header className='flex gap-[5px] overflow-auto w-[80%] m-auto'>
+			<header className='flex gap-[5px] 
+			overflow-auto w-[80%] 
+			mx-auto my-4 bg-blue-100
+			 p-4 rounded-xl'
+			>
 				{toBeLearned.map((item: string) => (
-					<NavLink to={`/${item}`} className="border-none rounded-[20px] 
-					bg-ghostwhite m-[5px] p-[8px] cursor-pointer 
-					shadow-[5px_5px_5px_1px_rgba(0,0,0,0.2)] 
-					transition-all duration-200 ease-in-out 
-					hover:shadow-[2px_2px_2px_1px_rgba(0,0,0,0.2)] 
-					active:shadow-none active:bg-gray-600" >
-						{item.replace(/_/g, ' ')}</NavLink>
+					<NavLink
+						to={`/${item}`}
+						key={item}
+						className={({ isActive }) =>
+							`border-none rounded-xl text-center
+     						 min-w-[100px] m-2 p-2 cursor-pointer content-center
+     						shadow-[5px_5px_5px_1px_rgba(0,0,0,0.2)] 
+     						transition-all duration-200 ease-in-out 
+     						hover:shadow-[2px_2px_2px_1px_rgba(0,0,0,0.2)] 
+     						${isActive ? 'shadow-none bg-blue-500 text-white' : 'bg-white'}`
+						}
+					>
+						{item.replace(/_/g, ' ')}
+					</NavLink>
+
 				))}
 			</header>
-			<main>
+			<main className='border-black border-2 p-4 overflow-auto h-100 m-2 rounded'>
 				<Outlet />
 			</main>
 		</>

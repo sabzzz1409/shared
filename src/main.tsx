@@ -15,6 +15,7 @@ import {
 import App from './App.tsx';
 
 export const toBeLearned: string[] = [
+  'Getting_started',
   'Basic_TSX_components',
   'Conditional_rendering',
   'Listing_&_keys',
@@ -29,9 +30,18 @@ export const toBeLearned: string[] = [
 ];
 
 const lazyComponents: Record<string, LazyExoticComponent<FC>> = {};
+
 toBeLearned.forEach(name => {
   lazyComponents[name] = lazy(() => import(`./components/${name}.tsx`));
 });
+
+const renderRoutes = toBeLearned.map(name => (
+  <Route
+    key={name}
+    path={name.toLowerCase()}
+    element={createElement(lazyComponents[name])}
+  />
+))
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -39,13 +49,7 @@ createRoot(document.getElementById('root')!).render(
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/' element={<App />}>
-            {toBeLearned.map(name => (
-              <Route
-                key={name}
-                path={name.toLowerCase()}
-                element={createElement(lazyComponents[name])}
-              />
-            ))}
+            {renderRoutes}
           </Route>
           <Route path='*' element={<App />} />
         </Routes>
