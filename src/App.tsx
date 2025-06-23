@@ -1,5 +1,6 @@
 import './app.scss';
 import { NavLink, Outlet } from 'react-router';
+import { toBeLearned } from './main';
 
 export default () => {
 
@@ -9,26 +10,12 @@ export default () => {
 	and react router declarative
 	`;
 
-	const toBeLearned: string[] = [
-		'basic_TSX_components',
-		'conditional_rendering',
-		'listing_&_keys',
-		'props_&_state',
-		'hooks',
-		'client_side_routing',
-		'server_side_routing',
-		'api',
-		'forms',
-		'UI_libraries',
-		'packages'
-	];
-
 	return (
 		<>
 			<h2 className="text-xl font-extrabold">
 				{introText}
 			</h2>
-			<header className='flex gap-[5px] overflow-auto'>
+			<header className='flex gap-[5px] overflow-auto w-[80%] m-auto'>
 				{toBeLearned.map((item: string) => (
 					<NavLink to={`/${item}`} className="border-none rounded-[20px] 
 					bg-ghostwhite m-[5px] p-[8px] cursor-pointer 
