@@ -1,9 +1,13 @@
+import Sample from "../tests/Sample"
+
 export default () => {
 
     return (
-        <div>
+        <>
+
             <h1 className="text-center text-2xl font-extrabold">Basic TSX Components code</h1>
             <br />
+
             <div className="flex flex-wrap">
                 <div className="w-100 mx-auto my-2 md:w-1/2 border-black border-2 p-2 rounded">
                     <p className="underline text-xl font-bold">Basic version :</p>
@@ -12,7 +16,7 @@ export default () => {
                     <div className="p-8">
                         <div>imports here</div>
                         <br />
-                        <div>function FUNCTION_NAME (  ) {"{"}</div>
+                        <div>function FUNCTION_NAME ( {" { "} PROPS {" } "} ) {"{"}</div>
                         <br />
                         <div className="ms-4">const VAR:TYPE = ( VALUE, FUNCTION, ARROW FUNCTION, HOOK ... );</div>
                         <div className="ms-4 text-xs text-red-500">( keep hooks first then variables then function )</div>
@@ -42,11 +46,11 @@ export default () => {
                         <br />
                         <div className="text-sm italic">inside return of component</div>
                         <div>
-                            &lt;FUNCTION_NAME/&gt;
+                            &lt;FUNCTION_NAME ATTR /&gt;
                         </div>
                         <div>(or)</div>
                         <div>
-                            &lt;FUNCTION_NAME&gt;&lt;FUNCTION_NAME/&gt;
+                            &lt;FUNCTION_NAME ATTR &gt;&lt;FUNCTION_NAME/&gt;
                         </div>
                         <br />
                     </div>
@@ -58,7 +62,7 @@ export default () => {
                     <div className="p-8">
                         <div>imports here</div>
                         <br />
-                        <div>export default (  ) =&gt; {"{"}</div>
+                        <div>export default ( {" { "} PROPS {" } "} ) =&gt; {"{"}</div>
                         <br />
                         <div className="ms-4">const VAR:TYPE = ( VALUE, FUNCTION, ARROW FUNCTION, HOOK ... );</div>
                         <div className="ms-4 text-xs text-red-500">( keep hooks first then variables then function )</div>
@@ -88,17 +92,20 @@ export default () => {
                         <br />
                         <div className="text-sm italic">inside return of component</div>
                         <div>
-                            &lt;FUNCTION_NAME/&gt;
+                            &lt;FUNCTION_NAME ATTR /&gt;
                         </div>
                         <div>(or)</div>
                         <div>
-                            &lt;FUNCTION_NAME&gt;&lt;FUNCTION_NAME/&gt;
+                            &lt;FUNCTION_NAME ATTR &gt;&lt;FUNCTION_NAME/&gt;
                         </div>
                         <br />
                     </div>
                 </div>
             </div>
-        </div>
+            <div className="text-center text-lg font-bold">Rough</div>
+            <Sample />
+
+        </>
     )
 
 }

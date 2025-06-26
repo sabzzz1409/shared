@@ -17,16 +17,14 @@ import App from './App.tsx';
 export const toBeLearned: string[] = [
   'Getting_started',
   'Basic_TSX_components',
+  'Props_&_state',
   'Conditional_rendering',
   'Listing_&_keys',
-  'Props_&_state',
+  'Events',
   'Hooks',
-  'Client_side_routing',
-  'Server_side_routing',
   'Api',
-  'Forms',
-  'UI_libraries',
-  'Packages'
+  'Routing',
+  'Forms'
 ];
 
 const lazyComponents: Record<string, LazyExoticComponent<FC>> = {};
