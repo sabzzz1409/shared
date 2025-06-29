@@ -22,9 +22,10 @@ export const toBeLearned: string[] = [
   'Listing_&_keys',
   'Events',
   'Hooks',
-  'Api',
   'Routing',
-  'Forms'
+  'Forms',
+  'Api',
+  'Tables'
 ];
 
 const lazyComponents: Record<string, LazyExoticComponent<FC>> = {};
@@ -47,9 +48,19 @@ createRoot(document.getElementById('root')!).render(
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
           <Route path='/' element={<App />}>
+            <Route path='/' element={
+              createElement(
+                lazy(() => import('./components/Welcome.tsx'))
+              )
+            } />
             {renderRoutes}
+            <Route path='*' element={
+              createElement(
+                lazy(() => import('./components/NoPage.tsx'))
+              )
+            } />
           </Route>
-          <Route path='*' element={<App />} />
+
         </Routes>
       </Suspense>
     </BrowserRouter>

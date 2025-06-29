@@ -16,6 +16,8 @@ export default () => {
 
             </div>
 
+            <p> you can use any array method that returns array </p>
+
             <div className="text-center text-lg font-bold">Rough</div>
 
             {

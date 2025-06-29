@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet, Link } from 'react-router';
 import { toBeLearned } from './main';
 
 export default () => {
@@ -11,15 +11,17 @@ export default () => {
 
 	return (
 		<>
-			<h2 className="sm:text-lg md:text-2xl font-extrabold text-center font-serif bg-blue-100">
-				{introText}
-			</h2>
+			<Link to={"/"}>
+				<h2 className="sm:text-lg md:text-2xl font-extrabold text-center font-serif bg-blue-100" >
+					{introText}
+				</h2>
+			</Link>
 			<header className='flex gap-5
 			overflow-auto w-3/4
 			mx-auto my-4 bg-blue-100
 			 p-4 rounded-xl'
 			>
-				{toBeLearned.map((item: string) => (
+				{toBeLearned.map((item: string, index: number) => (
 					<NavLink
 						to={`/${item}`}
 						key={item}
@@ -32,7 +34,7 @@ export default () => {
      						${isActive ? ' bg-blue-500 text-white' : 'bg-white'}`
 						}
 					>
-						{item.replace(/_/g, ' ')}
+						{`${index}. ${item.replace(/_/g, ' ')}`}
 					</NavLink>
 
 				))}
