@@ -21,7 +21,7 @@ export default () => {
             <div className="text-center text-lg font-bold">Rough</div>
 
             {
-                list.map((item: number) => <div className="pl-4">{item}</div>)
+                list.map((item: number) => <div className="pl-4" key={item}>{item}</div>)
             }
 
         </>

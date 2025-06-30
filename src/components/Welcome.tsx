@@ -22,8 +22,8 @@ export default () => {
 
             <div className='grid justify-center gap-6 bg-blue-100 p-2 rounded mt-4 w-75 mx-auto'>
                 {
-                    renderTarget.map((item: string[]) => (
-                        <div className='flex justify-between contnet-center gap-4 '>
+                    renderTarget.map((item: string[], index: number) => (
+                        <div className='flex justify-between contnet-center gap-4' key={index}>
                             <span className='hover:bg-blue-500 
                     cursor-default transition p-2
                      rounded hover:text-white

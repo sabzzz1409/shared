@@ -1,3 +1,3 @@
 export default (param: any) => {
-    return;
+    return (param);
 }
